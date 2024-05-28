@@ -55,7 +55,7 @@ def set_in_main_process(in_main_process):
 
 
 
-_m = hashlib.md5()
+_m = hashlib.md5(usedforsecurity=False)
 _m.update(zim.ZIM_EXECUTABLE.encode('UTF-8'))
 
 key = zim.__version__ + '-' + _m.hexdigest()[:8]

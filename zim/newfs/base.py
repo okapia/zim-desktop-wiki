@@ -658,7 +658,7 @@ def _md5(content):
 	if isinstance(content, str):
 		content = (content,)
 
-	m = hashlib.md5()
+	m = hashlib.md5(usedforsecurity=False)
 	for l in content:
 		m.update(l.encode('UTF-8'))
 	return m.digest()

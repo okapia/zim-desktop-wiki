@@ -146,7 +146,7 @@ class ImageGeneratorModel(ImageGeneratorModelBase):
 			for k, v in sorted(self.attrib.items()):
 				content.extend([k, v])
 			content.append(self.data)
-			basename = hashlib.md5(''.join(content).encode()).hexdigest() + self.generator.imagefile_extension
+			basename = hashlib.md5(''.join(content).encode(), usedforsecurity=False).hexdigest() + self.generator.imagefile_extension
 		else:
 			basename = 'empty_image' + self.generator.imagefile_extension
 		file = cache_dir.file(basename)

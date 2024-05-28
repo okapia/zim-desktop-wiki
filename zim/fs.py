@@ -242,7 +242,7 @@ def format_file_size(bytes):
 
 def _md5(content):
 	import hashlib
-	m = hashlib.md5()
+	m = hashlib.md5(usedforsecurity=False)
 	if isinstance(content, str):
 		m.update(content.encode('UTF-8'))
 	else:

@@ -231,7 +231,7 @@ class ThumbnailManager(object):
 		@param size: thumbnail size in pixels (C{THUMB_SIZE_NORMAL}, C{THUMB_SIZE_LARGE}, or integer)
 		@returns: a L{File} object
 		'''
-		basename = hashlib.md5(file.uri.encode('ascii')).hexdigest() + '.png'
+		basename = hashlib.md5(file.uri.encode('ascii'), usedforsecurity=False).hexdigest() + '.png'
 			# file.uri should already be URL encoded for unicode characters - use 'ascii' to check
 		if size <= THUMB_SIZE_NORMAL:
 			return LOCAL_THUMB_STORAGE_NORMAL.file(basename)
